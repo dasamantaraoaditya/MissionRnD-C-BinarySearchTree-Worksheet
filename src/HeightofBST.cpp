@@ -9,7 +9,7 @@ Height of a BST which has only one node is 1
 Ex Input : 
 
     10 
-	/\
+    /\
    5 80
   /  /
  2  50

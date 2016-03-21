@@ -15,10 +15,10 @@ When fixed 30 will be right node of 5 , and 3 will be right node of 2 .
 Ex :In the below tree 1 and 20 are misplaced
 
          9
-	    / \
-	   4   1
-	  /     \
-	 20      30
+        / \
+       4   1
+      /     \
+    20      30
 Nodes 1 and 20 need to be fixed here .
 
 */

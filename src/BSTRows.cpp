@@ -10,7 +10,7 @@ Ex : If Bst is
  / \   \
 1   5   15                   <-- Order her is 15 ,5 ,1 
           \
-		  17
+          17
 
 Output will be a array consisting of [6,10,4,15,5,1,17];
 
