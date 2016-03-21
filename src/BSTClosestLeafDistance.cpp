@@ -6,7 +6,7 @@ any leaf of the Tree.
 Ex : Consider the below tree .
       2
      / \
-    1   3
+.   1   3
          \
          14
 For 3 ,Output is 1 . As its closest leaf is 14 and 3 is at a distance of 1 to 14 .
