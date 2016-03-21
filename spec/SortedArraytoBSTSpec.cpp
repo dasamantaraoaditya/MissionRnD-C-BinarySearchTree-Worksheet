@@ -113,7 +113,21 @@ namespace spec
 
 			return 0;
 		}
+		int search(struct node* root, int key)
+		{
+			if (root == NULL){
+				return 0;
+			}
+			if (root->data == key)
+			{
+				return 1;
+			}
 
+			if (root->data < key)
+				return search(root->right, key);
+
+			return search(root->left, key);
+		}
 
 
 		[TestMethod]
@@ -133,7 +147,20 @@ namespace spec
 			struct node *root = NULL;
 			root = convert_array_to_bst(arr, 1);
 			int check = isBalanced(root);
-			Assert::AreEqual(1, check, L"Array to BSt One failed", 1, 2);
+			int c2 = 0, c3 = 0;
+			int i = 0;
+			int len = 1;
+			for (i = 0; i < len; i++){
+				int cur = arr[i];
+				c3 = search(root, cur);
+			}
+			if (root != NULL){
+				if (root->data == 1){
+					c2 = 1;
+				}
+			}
+			check = check + c2 + c3;;
+			Assert::AreEqual(3, check, L"Array to BSt One failed", 1, 2);
 		};
 
 		[TestMethod, Timeout(2000)]
@@ -143,7 +170,21 @@ namespace spec
 			struct node *root = NULL;
 			root = convert_array_to_bst(arr, 3);
 			int check = isBalanced(root);
-			Assert::AreEqual(1, check, L"Array to BSt Three failed", 1, 2);
+			int c2 = 0, c3 = 0;
+			int i = 0;
+			int len = 3;
+			for (i = 0; i < len; i++){
+				int cur = arr[i];
+				c3 = search(root, cur);
+			}
+			if (root != NULL){
+				if (root->data == 2 && root->left->data == 1
+					&& root->right->data == 3){
+					c2 = 1;
+				}
+			}
+			check =check+ c2+c3;
+			Assert::AreEqual(3, check, L"Array to BSt Three failed", 1, 2);
 		};
 
 		[TestMethod, Timeout(2000)]
@@ -153,27 +194,72 @@ namespace spec
 			struct node *root = NULL;
 			root = convert_array_to_bst(arr, 5);
 			int check = isBalanced(root);
-			Assert::AreEqual(1, check, L"Array to BST Three failed", 1, 2);
+			int c2 = 0, c3 = 0;
+			int i = 0;
+			int len = 5;
+			for (i = 0; i < len; i++){
+				int cur = arr[i];
+				c3 = search(root, cur);
+			}
+			if (root != NULL){
+				if (root->data == 3){
+					if (root->left->data == 2 || root->left->data == 1){
+						if (root->right->data == 4 || root->right->data == 5){
+							c2 = 1;
+						}
+					}
+				
+				}
+			}
+			check = check + c2 + c3;
+			Assert::AreEqual(3, check, L"Array to BST Three failed", 1, 2);
 		};
 
 		[TestMethod, Timeout(2000)]
 		void ArraytoBST_MediumCase1()
 		{
-			int arr[10] = { 1,20,30,40,45,60,80,100 };
+			int arr[10] = { 1,20,30,40,45,60,80};
 			struct node *root = NULL;
-			root = convert_array_to_bst(arr, 8);
+			root = convert_array_to_bst(arr, 7);
 			int check = isBalanced(root);
-			Assert::AreEqual(1, check, L"Array to BST Medium case 1 failed", 1, 2);
+			int c2 = 0, c3 = 0;
+			int i = 0;
+			int len = 7;
+			for (i = 0; i < len; i++){
+				int cur = arr[i];
+				c3 = search(root, cur);
+			}
+			if (root != NULL){
+				if (root->data == 40 && root->left->data == 20
+					&& root->right->data == 60 && root->left->left->data == 1){
+					c2 = 1;
+				}
+			}
+			check =check+ c2+c3;
+			Assert::AreEqual(3, check, L"Array to BST Medium case 1 failed", 1, 2);
 		};
 
 		[TestMethod, Timeout(1000)]
 		void ArraytoBST_Large()
 		{
-			int arr[10] = { -123, 12, 120, 455, 1160, 2100 ,4545,12124};
+			int arr[10] = { -123, 12, 120, 455, 1160, 2100 ,4545,12124,12344};
 			struct node *root = NULL;
-			root = convert_array_to_bst(arr, 8);
+			root = convert_array_to_bst(arr, 9);
 			int check = isBalanced(root);
-			Assert::AreEqual(1, check, L"Array to BST Large case 1 failed", 1, 2);
+			int c2 = 0, c3 = 0;
+			int i = 0;
+			int len = 9;
+			for (i = 0; i < len; i++){
+				int cur = arr[i];
+				c3 = search(root, cur);
+			}
+			if (root != NULL){
+				if (root->data == 1160){
+					c2 = 1;
+				}
+			}
+			check =check+c3+ c2;
+			Assert::AreEqual(3, check, L"Array to BST Large case 1 failed", 1, 2);
 		};
 
 		

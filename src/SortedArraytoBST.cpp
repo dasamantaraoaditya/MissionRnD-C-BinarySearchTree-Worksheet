@@ -22,6 +22,7 @@ right subtree height is 2
    / \
   10  5
 
+Note : Return head of newly created BST
 Note : Return Null for invalid Inputs
 Note : Donot create a new BST .
 */
