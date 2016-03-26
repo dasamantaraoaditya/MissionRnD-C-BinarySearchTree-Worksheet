@@ -130,7 +130,9 @@ namespace spec
 			int h = get_height(root);
 			int ls = get_left_subtree_sum(root);
 			int rs = get_right_subtree_sum(root);
-			int ans[3] = { 10,0,55};
+			//
+			int ans[3] = { 10,0,54};
+
 			int actualans[3] = { h, ls, rs };
 
 			for (int i = 0; i < 3; i++){
